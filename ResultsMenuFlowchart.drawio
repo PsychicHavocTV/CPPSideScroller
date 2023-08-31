@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-08-31T05:22:25.597Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62" etag="C2yloHLPJq7a9HP109hP" version="21.7.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-31T05:26:38.843Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 Edg/116.0.1938.62" etag="-FcWDuzEXsNix6Pkta_8" version="21.7.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1149" dy="663" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -291,7 +291,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="47v-TTcWWAKO6_jb8XwO-113" value="&lt;b&gt;Disable / Hide &#39;Close Shop&#39; Button&lt;/b&gt;" style="whiteSpace=wrap;html=1;fontSize=9;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="47v-TTcWWAKO6_jb8XwO-113" value="&lt;b&gt;Enable / Show &#39;Close Shop&#39; Button&lt;/b&gt;" style="whiteSpace=wrap;html=1;fontSize=9;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="500" y="600" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
