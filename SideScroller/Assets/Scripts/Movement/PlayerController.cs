@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     public Transform floorPosition;
     public Transform maxPosition;
-    private float speed = 10;
+    public float speed;
 
     private void Start()
     {
@@ -19,15 +19,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (player.transform.position.y < maxPosition.transform.position.y && Input.GetMouseButton(1))
+        if (player.transform.position.y < maxPosition.transform.position.y && Input.GetMouseButton(0))
         {
             player.transform.position += Vector3.up * speed * Time.deltaTime;
         }
 
-        if (player.transform.position.y > (floorPosition.position.y + 0.37f) && !Input.GetMouseButton(1))
+        if (player.transform.position.y > (floorPosition.position.y + 0.37f) && !Input.GetMouseButton(0))
         {
             //rb.useGravity = true;
-            player.transform.position += Vector3.down * (speed / 2) * Time.deltaTime;
+            player.transform.position += Vector3.down * (speed / 1.8f) * Time.deltaTime;
         }
     }
 }
