@@ -4,16 +4,7 @@ using UnityEngine;
 
 public class SpawnHandler : MonoBehaviour
 {
-    public GameObject spawnObject;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Vector3 position;
+    public Vector3 maxHeightPos;
+    public Vector3 minHeightPos;
 }

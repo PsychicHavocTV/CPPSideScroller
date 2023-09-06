@@ -9,4 +9,7 @@ public class CreatureObjects : ScriptableObject
     public bool shark = false;
     public bool seal = false;
     public float creatureSpeed = 0;
+    public string name = "";
+
+    public CreatureHandler cH;
 }
