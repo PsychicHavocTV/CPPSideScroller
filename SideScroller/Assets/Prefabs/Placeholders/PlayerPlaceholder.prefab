@@ -131,7 +131,7 @@ MonoBehaviour:
   player: {fileID: 5302576635461556931}
   floorPosition: {fileID: 0}
   maxPosition: {fileID: 0}
-  speed: 8
+  speed: 10
 --- !u!1 &5302576636800667200
 GameObject:
   m_ObjectHideFlags: 0

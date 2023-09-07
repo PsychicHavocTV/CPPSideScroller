@@ -5,12 +5,14 @@ using UnityEngine;
 public class CreatureHandler : MonoBehaviour
 {
     public CreatureObjects cO;
+    public Creature creatureType;
     public GameObject creatureBody;
     public GameObject testCreature;
     private SpawnHandler sH;
     private CreatureHandler cH;
     float timeHolder = 2;
-    int moveTimer = 5;
+    int moveChance = 0;
+    float maxHeight = 0;
 
     // Spawn the creature.
     public void SpawnCreature()
@@ -18,6 +20,10 @@ public class CreatureHandler : MonoBehaviour
         Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
         creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
         creatureBody.name = cO.name; // Rename the object accordingly.
+        creatureType = creatureBody.GetComponent<Creature>();
+        cO = creatureType.creatureType;
+
+        creatureBody.transform.parent = GameObject.Find("Creatures").transform;
         cH = creatureBody.GetComponent<CreatureHandler>();
         cH.enabled = true;
 
@@ -25,6 +31,7 @@ public class CreatureHandler : MonoBehaviour
         {
             sH = GetComponent<SpawnHandler>(); // If not found, set a new Spawn Handler.
         }
+        maxHeight = sH.maxHeightPos.y;
         Vector3 pos = sH.position; // create a new position to move the new creature to.
         pos.y = (int)Random.Range(sH.minHeightPos.y, sH.maxHeightPos.y); // Change the Y position to a random position within the minimum and maximum heights.
         creatureBody.transform.position = pos; // Move the creature to the updated position.
@@ -59,37 +66,8 @@ public class CreatureHandler : MonoBehaviour
     public void SharkBehaviour()
     {
         Debug.Log(timeHolder);
-        creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime;
+        creatureBody.transform.position += Vector3.left * 5 * Time.deltaTime;
         timeHolder -= 1 * Time.deltaTime;
-        moveTimer = (int)timeHolder;
-
-        if (moveTimer <= 0)
-        {
-            int moveChance = Random.Range(1, 10);
-            if (moveChance <= 10)
-            {
-                // Move Up.
-                if (creatureBody.transform.position.y < sH.maxHeightPos.y)
-                {
-                    creatureBody.transform.position += Vector3.up * 5 * cO.creatureSpeed * Time.deltaTime;
-                    timeHolder = 2;
-                }
-                else
-                {
-                    moveChance = 11;
-                }
-            }
-            if (moveChance > 10 && moveChance <= 20)
-            {
-                // Move Down.
-                //creatureBody.transform.position += Vector3.down * 3 * cO.creatureSpeed * Time.deltaTime;
-                timeHolder = 2;
-            }
-            if (moveChance > 20)
-            {
-                // Dont Move Up Or Down.
-            }
-        }
     }
 
     public void SealBehaviour()
