@@ -13,6 +13,12 @@ public class CreatureHandler : MonoBehaviour
     float timeHolder = 2;
     int moveChance = 0;
     float maxHeight = 0;
+    [SerializeField]
+    float ypos = 0;
+    [SerializeField]
+    float timer = 0;
+    [SerializeField]
+    iTween.EaseType easeType;
 
     // Spawn the creature.
     public void SpawnCreature()
@@ -66,8 +72,28 @@ public class CreatureHandler : MonoBehaviour
     public void SharkBehaviour()
     {
         Debug.Log(timeHolder);
-        creatureBody.transform.position += Vector3.left * 5 * Time.deltaTime;
+        creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime;
         timeHolder -= 1 * Time.deltaTime;
+
+        if(timer <= 0)
+        {
+            ypos = (float)Random.Range(0f, 3f);
+            timer = 2;
+        }
+        else
+        {
+            timer -= 1 * Time.deltaTime;
+        }
+
+        if(creatureBody.transform.position.y != ypos && ypos > creatureBody.transform.position.y)
+        {
+            creatureBody.transform.position += Vector3.up * cO.creatureSpeed * Time.deltaTime;
+        }
+        else if(creatureBody.transform.position.y != ypos && ypos < creatureBody.transform.position.y)
+        {
+            creatureBody.transform.position += Vector3.down * cO.creatureSpeed * Time.deltaTime;
+        }
+        
     }
 
     public void SealBehaviour()
