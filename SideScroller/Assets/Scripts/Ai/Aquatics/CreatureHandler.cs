@@ -111,5 +111,6 @@ public class CreatureHandler : MonoBehaviour
     {
         //Debug.Log("I am a seal.");
 
+
     }
 }
