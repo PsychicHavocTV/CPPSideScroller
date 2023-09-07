@@ -11,7 +11,10 @@ public class MoveFloor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.gameOver == false)
+        {
             ground.transform.position += Vector3.left * floorSpeed * Time.deltaTime;
             objectsHolder.transform.position += Vector3.left * floorSpeed * Time.deltaTime;
+        }
     }
 }
