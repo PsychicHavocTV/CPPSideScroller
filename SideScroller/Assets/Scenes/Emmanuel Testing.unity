@@ -848,6 +848,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 606787324}
     m_Modifications:
+    - target: {fileID: 558076758341980450, guid: 24ebeed350bcc3f4a82e4b654542ede6, type: 3}
+      propertyPath: easeType
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2741401945831049602, guid: 24ebeed350bcc3f4a82e4b654542ede6, type: 3}
       propertyPath: m_Name
       value: SharkPlaceholder

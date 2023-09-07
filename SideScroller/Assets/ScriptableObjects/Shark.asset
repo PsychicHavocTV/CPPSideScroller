@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shark: 1
   seal: 0
-  creatureSpeed: 6
+  creatureSpeed: 5
+  name: 
   cH: {fileID: 6662095512904541794, guid: ced9c95d5d76d354195e39d15a99cf0a, type: 3}
