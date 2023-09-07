@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
 
         if (player.transform.position.y > (floorPosition.position.y + 0.37f) && !Input.GetMouseButton(0))
         {
-            //rb.useGravity = true;
             player.transform.position += Vector3.down * (speed / 1.8f) * Time.deltaTime;
         }
     }

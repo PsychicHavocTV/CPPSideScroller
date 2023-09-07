@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Despawn
+  - MapEnd
   layers:
   - Default
   - TransparentFX

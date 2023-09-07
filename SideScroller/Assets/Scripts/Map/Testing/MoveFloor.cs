@@ -11,16 +11,7 @@ public class MoveFloor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
             ground.transform.position += Vector3.left * floorSpeed * Time.deltaTime;
             objectsHolder.transform.position += Vector3.left * floorSpeed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            ground.transform.position += Vector3.right * floorSpeed * Time.deltaTime;
-            objectsHolder.transform.position += Vector3.right * floorSpeed * Time.deltaTime;
-        }
     }
 }

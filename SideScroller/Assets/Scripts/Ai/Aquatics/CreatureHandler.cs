@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CreatureHandler : MonoBehaviour
@@ -10,8 +11,6 @@ public class CreatureHandler : MonoBehaviour
     public GameObject testCreature;
     private SpawnHandler sH;
     private CreatureHandler cH;
-    float timeHolder = 2;
-    int moveChance = 0;
     float maxHeight = 0;
     [SerializeField]
     float ypos = 0;
@@ -27,7 +26,9 @@ public class CreatureHandler : MonoBehaviour
         creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
         creatureBody.name = cO.name; // Rename the object accordingly.
         creatureType = creatureBody.GetComponent<Creature>();
+        creatureType.enabled = true;
         cO = creatureType.creatureType;
+
 
         creatureBody.transform.parent = GameObject.Find("Creatures").transform;
         cH = creatureBody.GetComponent<CreatureHandler>();
@@ -41,6 +42,10 @@ public class CreatureHandler : MonoBehaviour
         Vector3 pos = sH.position; // create a new position to move the new creature to.
         pos.y = (int)Random.Range(sH.minHeightPos.y, sH.maxHeightPos.y); // Change the Y position to a random position within the minimum and maximum heights.
         creatureBody.transform.position = pos; // Move the creature to the updated position.
+        if (cO.seal == true)
+        {
+            timer = 5;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,6 +56,11 @@ public class CreatureHandler : MonoBehaviour
             Destroy(creatureBody);
             SpawnCreature();
         }
+
+        if (other.tag == "Player")
+        {
+            Debug.Log("Kill Player");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -59,6 +69,7 @@ public class CreatureHandler : MonoBehaviour
 
     private void Update()
     {
+        // Check the creature type.
         if (cO.shark == true)
         {
             SharkBehaviour();
@@ -71,33 +82,34 @@ public class CreatureHandler : MonoBehaviour
 
     public void SharkBehaviour()
     {
-        Debug.Log(timeHolder);
-        creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime;
-        timeHolder -= 1 * Time.deltaTime;
+        creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime; // Move the shark to the left.
 
-        if(timer <= 0)
+        if(timer <= 0) // If the timer has reached ZERO (0)
         {
+            // Generate a random number between 0 and 3, and create a new Y position for the shark to move to later, and reset the timer.
             ypos = (float)Random.Range(0f, 3f);
             timer = 2;
         }
         else
         {
-            timer -= 1 * Time.deltaTime;
+            timer -= 1 * Time.deltaTime; // Count the timer down by 1 every second.
         }
 
-        if(creatureBody.transform.position.y != ypos && ypos > creatureBody.transform.position.y)
+        // If the sharks Y position doesnt already equal the newly generated Y position, and the new Y position is higher than the sharks current Y Position
+        if (creatureBody.transform.position.y != ypos && ypos > creatureBody.transform.position.y)
         {
-            creatureBody.transform.position += Vector3.up * cO.creatureSpeed * Time.deltaTime;
+            creatureBody.transform.position += Vector3.up * cO.creatureSpeed * Time.deltaTime; // Move the shark up multiplied by its speed.
         }
-        else if(creatureBody.transform.position.y != ypos && ypos < creatureBody.transform.position.y)
+        // If the sharks Y position doesnt already equal the newly generated Y position, and the new Y position is lower than the sharks current Y Position
+        else if (creatureBody.transform.position.y != ypos && ypos < creatureBody.transform.position.y)
         {
-            creatureBody.transform.position += Vector3.down * cO.creatureSpeed * Time.deltaTime;
+            creatureBody.transform.position += Vector3.down * cO.creatureSpeed * Time.deltaTime; // Move the shark down multiplied by its speed.
         }
-        
     }
 
     public void SealBehaviour()
     {
-        Debug.Log("I am a seal.");
+        //Debug.Log("I am a seal.");
+
     }
 }
