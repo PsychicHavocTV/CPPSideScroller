@@ -10,6 +10,7 @@ public class CreatureHandler : MonoBehaviour
     public Creature creatureType;
     public GameObject creatureBody;
     public GameObject testCreature;
+    //public GameObject minimumSpawnHeight;
     private SpawnHandler sH;
     private CreatureHandler cH;
     float maxHeight = 0;
@@ -18,9 +19,15 @@ public class CreatureHandler : MonoBehaviour
     [SerializeField]
     int ypos = 0;
     [SerializeField]
+<<<<<<< HEAD
     float timer2 = 0;
     Warning canSpawn;
     public bool canMove = true;
+=======
+    iTween.EaseType easeType;
+    bool moveComplete = true;
+    bool posGenerated = false;
+>>>>>>> origin/main
 
     // Spawn the creature.
     public void SpawnCreature()
@@ -76,11 +83,15 @@ public class CreatureHandler : MonoBehaviour
         if (other.tag == "Player")
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             SceneManager.LoadScene(1);
             //Debug.Log("Kill Player");
 =======
             GameManager.Instance.gameOver = true;
 >>>>>>> origin/emmanuelupdate
+=======
+            GameManager.Instance.gameOver = true;
+>>>>>>> origin/main
         }
     }
 
@@ -111,10 +122,15 @@ public class CreatureHandler : MonoBehaviour
         if(timer2 <= 0) // If the timer has reached ZERO (0)
         {
             // Generate a random number between 0 and 3, and create a new Y position for the shark to move to later, and reset the timer.
+<<<<<<< HEAD
             ypos = (int)Random.Range(0, 3);
             timer2 = 2;
+=======
+            ypos = (float)Random.Range(1, 4);
+            timer = 2;
+>>>>>>> origin/main
         }
-        else
+        else if (timer > 0)
         {
             timer2 -= 1 * Time.deltaTime; // Count the timer down by 1 every second.
         }
@@ -124,8 +140,9 @@ public class CreatureHandler : MonoBehaviour
         {
             creatureBody.transform.position += Vector3.up * cO.creatureSpeed * Time.deltaTime; // Move the shark up multiplied by its speed.
         }
+
         // If the sharks Y position doesnt already equal the newly generated Y position, and the new Y position is lower than the sharks current Y Position
-        else if (creatureBody.transform.position.y != ypos && ypos < creatureBody.transform.position.y)
+        if (creatureBody.transform.position.y != ypos && ypos < creatureBody.transform.position.y)
         {
             creatureBody.transform.position += Vector3.down * cO.creatureSpeed * Time.deltaTime; // Move the shark down multiplied by its speed.
         }
@@ -138,6 +155,10 @@ public class CreatureHandler : MonoBehaviour
     public void SealBehaviour()
     {
         //Debug.Log("I am a seal.");
+<<<<<<< HEAD
         creatureBody.transform.position += Vector3.left * (cO.creatureSpeed * 3) * Time.deltaTime; // Move the shark to the left.
+=======
+
+>>>>>>> origin/main
     }
 }
