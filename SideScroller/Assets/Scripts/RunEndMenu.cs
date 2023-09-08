@@ -27,6 +27,12 @@ public class RunEndMenu : MonoBehaviour
         SceneManager.UnloadSceneAsync(0);
     }
 
+    public void SwimAgain()
+    {
+        SceneManager.UnloadSceneAsync(0);
+        SceneManager.LoadSceneAsync(0);
+        GameManager.Instance.ResetRunStats();
+    }
 
     void Update()
     {

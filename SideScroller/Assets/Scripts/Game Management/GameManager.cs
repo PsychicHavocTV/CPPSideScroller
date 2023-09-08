@@ -25,6 +25,15 @@ public class GameManager : MonoBehaviour
         CheckForSave();
     }
 
+    public void ResetRunStats()
+    {
+        gameOver = false;
+        gameSaved = false;
+        travelledRunDistance = 0;
+        coinsCollected = 0;
+        runDistance = 0;
+    }
+
     // Check for existing save data.
     private void CheckForSave()
     {
