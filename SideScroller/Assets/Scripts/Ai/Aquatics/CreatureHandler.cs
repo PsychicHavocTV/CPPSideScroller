@@ -66,7 +66,6 @@ public class CreatureHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         if (other.tag == "Despawn")
         {
             Destroy(creatureBody);
@@ -76,8 +75,12 @@ public class CreatureHandler : MonoBehaviour
 
         if (other.tag == "Player")
         {
+<<<<<<< HEAD
             SceneManager.LoadScene(1);
             //Debug.Log("Kill Player");
+=======
+            GameManager.Instance.gameOver = true;
+>>>>>>> origin/emmanuelupdate
         }
     }
 
@@ -87,14 +90,17 @@ public class CreatureHandler : MonoBehaviour
 
     private void Update()
     {
-        // Check the creature type.
-        if (cO.shark == true)
+        if (GameManager.Instance.gameOver == false)
         {
-            SharkBehaviour();
-        }
-        else if (cO.seal == true)
-        {
-            SealBehaviour();
+            // Check the creature type.
+            if (cO.shark == true)
+            {
+                SharkBehaviour();
+            }
+            else if (cO.seal == true)
+            {
+                SealBehaviour();
+            }
         }
     }
 
