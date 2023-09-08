@@ -23,15 +23,13 @@ public class RunEndMenu : MonoBehaviour
 
     public void OpenMainMenuScene()
     {
-        SceneManager.LoadSceneAsync(2);
-        SceneManager.UnloadSceneAsync(0);
+        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Run");
     }
 
-    public void SwimAgain()
+    public void NewRun()
     {
-        SceneManager.UnloadSceneAsync(0);
-        SceneManager.LoadSceneAsync(0);
-        GameManager.Instance.ResetRunStats();
+        GameManager.Instance.SwimAgain();
     }
 
     void Update()

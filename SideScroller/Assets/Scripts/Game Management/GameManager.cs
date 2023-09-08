@@ -5,6 +5,7 @@ using System.IO;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +24,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CheckForSave();
+        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+    }
+
+    public void StartRun()
+    {
+        SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("MainMenu");
+    }
+
+    public void SwimAgain()
+    {
+        SceneManager.UnloadSceneAsync("Run");
+        SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
+        GameManager.Instance.ResetRunStats();
     }
 
     public void ResetRunStats()
@@ -35,11 +50,12 @@ public class GameManager : MonoBehaviour
     }
 
     // Check for existing save data.
-    private void CheckForSave()
+    public void CheckForSave()
     {
-        int lineNumber = 1;
-        string path = Application.persistentDataPath + "GameData.txt"; // The file path for the save data. the file should end up in '/AppData/LocalLow/DefaultCompany/SideScroller/'
-        if (File.Exists(Application.persistentDataPath + "GameData.txt") || File.Exists(Application.persistentDataPath + "filesGameData.txt"))
+        int lineNumber = 0;
+        string path = Application.persistentDataPath + "/GameData.txt"; // The file path for the save data. the file should end up in '/AppData/LocalLow/DefaultCompany/SideScroller/'
+        Debug.Log(path);
+        if (File.Exists(path) || File.Exists(Application.persistentDataPath + "/filesGameData.txt"))
         {
             using (StreamReader sr = new StreamReader(path))
             {
@@ -55,13 +71,13 @@ public class GameManager : MonoBehaviour
                                 Debug.Log("Total Coins Collected: " + totalCurrency);
                                 break;
                             }
-                        case 1:
-                            {
-                                string lineContents = sr.ReadLine();
-                                float.TryParse(lineContents, out bestRunDistance);
-                                Debug.Log("Best Run Distance: " + bestRunDistance);
-                                break;
-                            }
+                        //case 1:
+                        //    {
+                        //        string lineContents = sr.ReadLine();
+                        //        float.TryParse(lineContents, out bestRunDistance);
+                        //        Debug.Log("Best Run Distance: " + bestRunDistance);
+                        //        break;
+                        //    }
                     }
                 }
             }
@@ -101,7 +117,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("New Total Coins Owned: " + totalCurrency);
 
-        string path = Application.persistentDataPath + "GameData.txt"; // Save File Path.
+        string path = Application.persistentDataPath + "/GameData.txt"; // Save File Path.
         StreamWriter w = new StreamWriter(path);
         Debug.Log(totalCurrency);
         w.WriteLine(totalCurrency);
