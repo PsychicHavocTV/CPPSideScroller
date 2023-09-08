@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 579453535}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: SealSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,11 +414,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 579453534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb154007dbd1514b80f6e91e8bae370, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c822f4cd6bff7742a6391dd0c8a6d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1802077593}
-  canSpawn: 0
+  seal: {fileID: 8098177141026074609, guid: 8c44daad43f99314395de25ad82334e2, type: 3}
+  canspawn: 0
   timer: 0
 --- !u!136 &579453536
 CapsuleCollider:
@@ -960,11 +960,6 @@ Transform:
   m_Father: {fileID: 380766999}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1802077593 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5302576635461556931, guid: 9e74f8db5e926974ca2c8a8fcd03e121, type: 3}
-  m_PrefabInstance: {fileID: 5302576635279187116}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4367889873014247559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8098177141026074613, guid: 8c44daad43f99314395de25ad82334e2, type: 3}
@@ -1050,6 +1045,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 606787324}
     m_Modifications:
+    - target: {fileID: 5897257439773800273, guid: 8c44daad43f99314395de25ad82334e2, type: 3}
+      propertyPath: warningSpot
+      value: 
+      objectReference: {fileID: 579453534}
     - target: {fileID: 8098177141026074609, guid: 8c44daad43f99314395de25ad82334e2, type: 3}
       propertyPath: m_Name
       value: Seal
@@ -1060,7 +1059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8098177141026074613, guid: 8c44daad43f99314395de25ad82334e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.88
+      value: -3.92
       objectReference: {fileID: 0}
     - target: {fileID: 8098177141026074613, guid: 8c44daad43f99314395de25ad82334e2, type: 3}
       propertyPath: m_LocalPosition.y
