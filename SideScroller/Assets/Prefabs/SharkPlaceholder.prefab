@@ -99,10 +99,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.9033976
+  m_Radius: 0.50980425
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.4033977, y: -2.4655884e-15, z: 0}
+  m_Center: {x: 0.009804245, y: -1.376099e-17, z: 0}
 --- !u!114 &558076758341980450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +119,9 @@ MonoBehaviour:
   creatureType: {fileID: 4915743495836744849}
   creatureBody: {fileID: 2741401945831049602}
   testCreature: {fileID: 2741401945831049602}
+  ypos: 0
+  timer: 0
+  easeType: 13
 --- !u!114 &4915743495836744849
 MonoBehaviour:
   m_ObjectHideFlags: 0
