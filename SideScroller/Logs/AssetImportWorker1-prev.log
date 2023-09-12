@@ -15,11 +15,7 @@ C:/Users/s213209/Desktop/Repos/CPPSideScroller/SideScroller
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-<<<<<<< HEAD
-64009
-=======
 53385
->>>>>>> origin/main
 Successfully changed project path to: C:/Users/s213209/Desktop/Repos/CPPSideScroller/SideScroller
 C:/Users/s213209/Desktop/Repos/CPPSideScroller/SideScroller
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -51,11 +47,7 @@ C:/Users/s213209/Desktop/Repos/CPPSideScroller/SideScroller
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-<<<<<<< HEAD
-Refreshing native plugins compatible for Editor in 88.34 ms, found 3 plugins.
-=======
 Refreshing native plugins compatible for Editor in 88.79 ms, found 3 plugins.
->>>>>>> origin/main
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.13f1 (9e7d58001ecf)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/Resources/UnitySubsystems
@@ -71,11 +63,7 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/MonoBleedingEdge/etc'
-<<<<<<< HEAD
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56552
-=======
 Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56496
->>>>>>> origin/main
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
@@ -83,25 +71,12 @@ Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.13f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-<<<<<<< HEAD
-Registered in 0.022928 seconds.
-=======
 Registered in 0.024249 seconds.
->>>>>>> origin/main
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-<<<<<<< HEAD
-Refreshing native plugins compatible for Editor in 78.80 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.868 seconds
-Domain Reload Profiling:
-	ReloadAssembly (868ms)
-		BeginReloadAssembly (102ms)
-=======
 Refreshing native plugins compatible for Editor in 77.71 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
@@ -109,28 +84,11 @@ Mono: successfully reloaded assembly
 Domain Reload Profiling:
 	ReloadAssembly (801ms)
 		BeginReloadAssembly (101ms)
->>>>>>> origin/main
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-<<<<<<< HEAD
-		EndReloadAssembly (599ms)
-			LoadAssemblies (99ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (139ms)
-			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (35ms)
-			SetupLoadedEditorAssemblies (354ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (95ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (79ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (125ms)
-				ProcessInitializeOnLoadMethodAttributes (52ms)
-=======
 		EndReloadAssembly (544ms)
 			LoadAssemblies (98ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
@@ -145,40 +103,19 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (1ms)
 				ProcessInitializeOnLoadAttributes (113ms)
 				ProcessInitializeOnLoadMethodAttributes (47ms)
->>>>>>> origin/main
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-<<<<<<< HEAD
-Registered in 0.011735 seconds.
-=======
 Registered in 0.012155 seconds.
->>>>>>> origin/main
 Begin MonoManager ReloadAssembly
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
-<<<<<<< HEAD
-Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.439 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1440ms)
-		BeginReloadAssembly (275ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (9ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (135ms)
-		EndReloadAssembly (1017ms)
-			LoadAssemblies (117ms)
-=======
 Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
@@ -193,21 +130,9 @@ Domain Reload Profiling:
 			CreateAndSetChildDomain (132ms)
 		EndReloadAssembly (1050ms)
 			LoadAssemblies (119ms)
->>>>>>> origin/main
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (353ms)
+			SetupTypeCache (343ms)
 			ReleaseScriptCaches (1ms)
-<<<<<<< HEAD
-			RebuildScriptCaches (58ms)
-			SetupLoadedEditorAssemblies (450ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (37ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (107ms)
-				ProcessInitializeOnLoadAttributes (254ms)
-				ProcessInitializeOnLoadMethodAttributes (34ms)
-=======
 			RebuildScriptCaches (57ms)
 			SetupLoadedEditorAssemblies (484ms)
 				LogAssemblyErrors (0ms)
@@ -217,7 +142,6 @@ Domain Reload Profiling:
 				BeforeProcessingInitializeOnLoad (123ms)
 				ProcessInitializeOnLoadAttributes (264ms)
 				ProcessInitializeOnLoadMethodAttributes (42ms)
->>>>>>> origin/main
 				AfterProcessingInitializeOnLoad (17ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -225,15 +149,6 @@ Domain Reload Profiling:
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-<<<<<<< HEAD
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.67 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3371 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 25 unused Assets / (56.7 KB). Loaded Objects now: 3832.
-Memory consumption went from 118.0 MB to 117.9 MB.
-Total: 3.180400 ms (FindLiveObjects: 0.320900 ms CreateObjectMapping: 0.152200 ms MarkObjects: 2.626600 ms  DeleteObjects: 0.079700 ms)
-=======
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
 Refreshing native plugins compatible for Editor in 0.66 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
@@ -2329,7 +2244,6 @@ Unloading 3361 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 18 unused Assets / (24.6 KB). Loaded Objects now: 3951.
 Memory consumption went from 117.0 MB to 117.0 MB.
 Total: 3.175300 ms (FindLiveObjects: 0.292100 ms CreateObjectMapping: 0.107100 ms MarkObjects: 2.749800 ms  DeleteObjects: 0.025500 ms)
->>>>>>> origin/main
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -2343,12 +2257,6 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-<<<<<<< HEAD
-  Time since last request: 69340.889922 seconds.
-  path: Assets/Prefabs/SharkPlaceholder.prefab
-  artifactKey: Guid(24ebeed350bcc3f4a82e4b654542ede6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/SharkPlaceholder.prefab using Guid(24ebeed350bcc3f4a82e4b654542ede6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ca23042d42fdc177358d2774b2ff4b5') in 0.368787 seconds 
-=======
   Time since last request: 80248.812373 seconds.
   path: Assets/ScriptableObjects/Shark.asset
   artifactKey: Guid(0e21b02ab53afd74d8e3f6108df0813d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
@@ -7777,4 +7685,3 @@ C:\WINDOWS\SYSTEM32\dbghelp.dll:dbghelp.dll (00007FFBA7220000), size: 1982464 (r
 
 A crash has been intercepted by the crash handler. For call stack and other details, see the latest crash report generated in:
  * C:/Users/s213209/AppData/Local/Temp/Unity/Editor/Crashes
->>>>>>> origin/main

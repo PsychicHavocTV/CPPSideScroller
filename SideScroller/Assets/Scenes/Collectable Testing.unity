@@ -251,8 +251,6 @@ Transform:
   m_Father: {fileID: 380766999}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!114 &141665349 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9198423575059521066, guid: 7b3aa4184119a7a448438d4de4d49f75, type: 3}
@@ -264,7 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> origin/main
 --- !u!1 &321511584
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,8 +526,6 @@ Transform:
   m_Father: {fileID: 766845747}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
-<<<<<<< HEAD
-=======
 --- !u!114 &647053138 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9198423575266362101, guid: 7b3aa4184119a7a448438d4de4d49f75, type: 3}
@@ -542,7 +537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> origin/main
 --- !u!1 &766845745
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,10 +548,7 @@ GameObject:
   - component: {fileID: 766845747}
   - component: {fileID: 766845746}
   - component: {fileID: 766845748}
-<<<<<<< HEAD
-=======
   - component: {fileID: 766845749}
->>>>>>> origin/main
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -617,8 +608,6 @@ MonoBehaviour:
   gameOver: 0
   gameSaved: 0
   totalCurrency: 0
-<<<<<<< HEAD
-=======
   oldBest: 0
   bestRunDistance: 0
   travelledRunDistance: 0
@@ -765,7 +754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> origin/main
 --- !u!1 &885367526
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,8 +945,6 @@ Transform:
   m_Father: {fileID: 766845747}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &949362164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,7 +1013,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> origin/main
 --- !u!4 &975936716 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8408925172446913485, guid: 6503f408a3fb1f44583dd6428a518ced, type: 3}
@@ -1168,8 +1153,6 @@ Transform:
   m_Father: {fileID: 380766999}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1528885620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9198423576760387938, guid: 7b3aa4184119a7a448438d4de4d49f75, type: 3}
@@ -1180,7 +1163,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9198423576760387941, guid: 7b3aa4184119a7a448438d4de4d49f75, type: 3}
   m_PrefabInstance: {fileID: 829672674}
   m_PrefabAsset: {fileID: 0}
->>>>>>> origin/main
 --- !u!114 &1707245408 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1707245408, guid: 6503f408a3fb1f44583dd6428a518ced, type: 3}
@@ -1192,8 +1174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5879507593a22743963fd312ef9b34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
 --- !u!1 &1719506181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,7 +1296,6 @@ MonoBehaviour:
   travelDistanceCurrent: 0
   earntCoinsTotal: 0
   earntCoinsCurrent: 0
->>>>>>> origin/main
 --- !u!4 &2004703390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5302576636800667201, guid: 9e74f8db5e926974ca2c8a8fcd03e121, type: 3}

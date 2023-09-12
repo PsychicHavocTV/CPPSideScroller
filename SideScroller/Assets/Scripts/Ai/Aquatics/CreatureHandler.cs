@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CreatureHandler : MonoBehaviour
 {
@@ -15,49 +14,19 @@ public class CreatureHandler : MonoBehaviour
     private CreatureHandler cH;
     float maxHeight = 0;
     [SerializeField]
-    private GameObject warningSpot;
+    float ypos = 0;
     [SerializeField]
-    int ypos = 0;
+    float timer = 0;
     [SerializeField]
-<<<<<<< HEAD
-    float timer2 = 0;
-    Warning canSpawn;
-    public bool canMove = true;
-=======
     iTween.EaseType easeType;
     bool moveComplete = true;
     bool posGenerated = false;
->>>>>>> origin/main
 
     // Spawn the creature.
     public void SpawnCreature()
     {
-        if(cO.shark == true)
-        {
-            Debug.Log("spawned shark");
-            Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
-            creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
-
-            if (sH == null)
-            {
-                sH = GetComponent<SpawnHandler>(); // If not found, set a new Spawn Handler.
-            }
-            maxHeight = sH.maxHeightPos.y;
-            Vector3 pos = sH.position; // create a new position to move the new creature to.
-            pos.y = (int)Random.Range(sH.minHeightPos.y, sH.maxHeightPos.y); // Change the Y position to a random position within the minimum and maximum heights.
-            creatureBody.transform.position = pos; // Move the creature to the updated position.
-            if (cO.seal == true)
-            {
-                timer2 = 5;
-            }
-        }
-        //else if(cO.seal == true)
-        //{
-        //    Debug.Log("spawned seal");
-        //    warningSpot = GameObject.FindWithTag("SealSpawn");
-        //    creatureBody = Instantiate(testCreature, warningSpot.transform.position, testCreature.transform.rotation);
-        //}
-        
+        Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
+        creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
         creatureBody.name = cO.name; // Rename the object accordingly.
         creatureType = creatureBody.GetComponent<Creature>();
         creatureType.enabled = true;
@@ -68,7 +37,18 @@ public class CreatureHandler : MonoBehaviour
         cH = creatureBody.GetComponent<CreatureHandler>();
         cH.enabled = true;
 
-
+        if (sH == null)
+        {
+            sH = GetComponent<SpawnHandler>(); // If not found, set a new Spawn Handler.
+        }
+        maxHeight = sH.maxHeightPos.y;
+        Vector3 pos = sH.position; // create a new position to move the new creature to.
+        pos.y = (int)Random.Range(sH.minHeightPos.y, sH.maxHeightPos.y); // Change the Y position to a random position within the minimum and maximum heights.
+        creatureBody.transform.position = pos; // Move the creature to the updated position.
+        if (cO.seal == true)
+        {
+            timer = 5;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -76,22 +56,12 @@ public class CreatureHandler : MonoBehaviour
         if (other.tag == "Despawn")
         {
             Destroy(creatureBody);
-            canMove = false;
             SpawnCreature();
         }
 
         if (other.tag == "Player")
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            SceneManager.LoadScene(1);
-            //Debug.Log("Kill Player");
-=======
             GameManager.Instance.gameOver = true;
->>>>>>> origin/emmanuelupdate
-=======
-            GameManager.Instance.gameOver = true;
->>>>>>> origin/main
         }
     }
 
@@ -119,20 +89,15 @@ public class CreatureHandler : MonoBehaviour
     {
         creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime; // Move the shark to the left.
 
-        if(timer2 <= 0) // If the timer has reached ZERO (0)
+        if(timer <= 0) // If the timer has reached ZERO (0)
         {
             // Generate a random number between 0 and 3, and create a new Y position for the shark to move to later, and reset the timer.
-<<<<<<< HEAD
-            ypos = (int)Random.Range(0, 3);
-            timer2 = 2;
-=======
             ypos = (float)Random.Range(1, 4);
             timer = 2;
->>>>>>> origin/main
         }
         else if (timer > 0)
         {
-            timer2 -= 1 * Time.deltaTime; // Count the timer down by 1 every second.
+            timer -= 1 * Time.deltaTime; // Count the timer down by 1 every second.
         }
 
         // If the sharks Y position doesnt already equal the newly generated Y position, and the new Y position is higher than the sharks current Y Position
@@ -146,19 +111,11 @@ public class CreatureHandler : MonoBehaviour
         {
             creatureBody.transform.position += Vector3.down * cO.creatureSpeed * Time.deltaTime; // Move the shark down multiplied by its speed.
         }
-        else
-        {
-            creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime; // Move the shark to the left.
-        }
     }
 
     public void SealBehaviour()
     {
         //Debug.Log("I am a seal.");
-<<<<<<< HEAD
-        creatureBody.transform.position += Vector3.left * (cO.creatureSpeed * 3) * Time.deltaTime; // Move the shark to the left.
-=======
 
->>>>>>> origin/main
     }
 }

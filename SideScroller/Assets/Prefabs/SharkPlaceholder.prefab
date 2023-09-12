@@ -120,11 +120,7 @@ MonoBehaviour:
   creatureBody: {fileID: 2741401945831049602}
   testCreature: {fileID: 2741401945831049602}
   ypos: 0
-<<<<<<< HEAD
-  timer: 0
-=======
   timer: 2
->>>>>>> origin/main
   easeType: 13
 --- !u!114 &4915743495836744849
 MonoBehaviour:

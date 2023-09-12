@@ -114,11 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
-<<<<<<< HEAD
---- !u!1 &5302576635461556931
-=======
 --- !u!1 &190701260577197252
->>>>>>> origin/main
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -569,9 +565,6 @@ MonoBehaviour:
   floorPosition: {fileID: 0}
   maxPosition: {fileID: 0}
   currency: {fileID: 0}
-<<<<<<< HEAD
-  speed: 10
-=======
   speed: 15
   runDistanceTravelled: 0
 --- !u!136 &5302576635279187118
@@ -588,7 +581,6 @@ CapsuleCollider:
   m_Height: 2.6239533
   m_Direction: 1
   m_Center: {x: 0.043860894, y: -0.022166116, z: 0.0000009903118}
->>>>>>> origin/main
 --- !u!1 &5302576636800667200
 GameObject:
   m_ObjectHideFlags: 0
