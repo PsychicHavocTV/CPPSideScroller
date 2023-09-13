@@ -8,11 +8,12 @@ TagManager:
   - Despawn
   - MapEnd
   - Coin
+  - floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - floor
   - Water
   - UI
   - 
