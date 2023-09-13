@@ -7,6 +7,9 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     public TextMeshProUGUI totalCurrencyText;
+    public TextMeshProUGUI sstotalCurrencyText;
+    public TextMeshProUGUI bestTDistanceText;
+    public TextMeshProUGUI totalTDistanceText;
 
     private void Start()
     {
@@ -28,5 +31,21 @@ public class MainMenu : MonoBehaviour
     public void OpenShop()
     {
 
+    }
+
+    public void TogglePanel(GameObject panel)
+    {
+        panel.SetActive(!panel.activeSelf);
+    }
+
+    public void LoadPlayerStats()
+    {
+        int totalTDistance = (int)GameManager.Instance.totalTravelledDistance;
+        int bestTDistance = (int)GameManager.Instance.bestRunDistance;
+        int currencyBalance = (int)GameManager.Instance.totalCurrency;
+
+        bestTDistanceText.text = "Best Run Distance: " + bestTDistance.ToString() + " Meters";
+        totalTDistanceText.text = "Total Run Distance: " + totalTDistance.ToString() + " Meters";
+        sstotalCurrencyText.text = "Player Coin Balance: $" + currencyBalance.ToString();
     }
 }

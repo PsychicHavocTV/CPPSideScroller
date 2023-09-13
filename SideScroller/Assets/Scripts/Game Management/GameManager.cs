@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float oldBest = 0;
     public float bestRunDistance = 0;
     public float travelledRunDistance = 0;
+    public float totalTravelledDistance = 0;
     public int coinsCollected = 0;
     public float runDistance = 0;
 
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
     // Check for existing save data.
     public void CheckForSave()
     {
-        int lineNumber = 0;
+        int lineNumber = 3;
         string path = Application.persistentDataPath + "/GameData.txt"; // The file path for the save data. the file should end up in '/AppData/LocalLow/DefaultCompany/SideScroller/'
         Debug.Log(path);
         if (File.Exists(path) || File.Exists(Application.persistentDataPath + "/filesGameData.txt"))
@@ -71,13 +72,19 @@ public class GameManager : MonoBehaviour
                                 Debug.Log("Total Coins Collected: " + totalCurrency);
                                 break;
                             }
-                        //case 1:
-                        //    {
-                        //        string lineContents = sr.ReadLine();
-                        //        float.TryParse(lineContents, out bestRunDistance);
-                        //        Debug.Log("Best Run Distance: " + bestRunDistance);
-                        //        break;
-                        //    }
+                        case 1:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out bestRunDistance);
+                                Debug.Log("Best Run Distance: " + bestRunDistance);
+                                break;
+                            }
+                        case 2:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out totalTravelledDistance);
+                                break;
+                            }
                     }
                 }
             }
@@ -97,6 +104,7 @@ public class GameManager : MonoBehaviour
         // Check for an existing save.
         CheckForSave();
 
+        totalTravelledDistance += runDistance;
 
         if (runDistance > bestRunDistance)
         {
@@ -125,6 +133,9 @@ public class GameManager : MonoBehaviour
         {
             w.WriteLine(bestRunDistance);
         }
+
+        w.WriteLine(totalTravelledDistance);
+
         w.Close();
         gameSaved = true;
 

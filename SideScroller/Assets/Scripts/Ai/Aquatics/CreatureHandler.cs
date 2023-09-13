@@ -92,8 +92,8 @@ public class CreatureHandler : MonoBehaviour
         if(timer <= 0) // If the timer has reached ZERO (0)
         {
             // Generate a random number between 0 and 3, and create a new Y position for the shark to move to later, and reset the timer.
-            ypos = (float)Random.Range(1, 4);
-            timer = 2;
+            ypos = (float)Random.Range(1, 6);
+            timer = 1;
         }
         else if (timer > 0)
         {
