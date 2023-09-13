@@ -4,6 +4,8 @@ using UnityEngine;
 using System.IO;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
+using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,21 +15,48 @@ public class GameManager : MonoBehaviour
     public bool gameOver = false;
     public bool gameSaved = false;
     public int totalCurrency = 0;
-    public int bestRunDistance = 0;
-
+    public float oldBest = 0;
+    public float bestRunDistance = 0;
     public float travelledRunDistance = 0;
+    public float totalTravelledDistance = 0;
+    public int coinsCollected = 0;
+    public float runDistance = 0;
 
     private void Start()
     {
         CheckForSave();
+        SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+    }
+
+    public void StartRun()
+    {
+        SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("MainMenu");
+    }
+
+    public void SwimAgain()
+    {
+        SceneManager.UnloadSceneAsync("Run");
+        SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
+        GameManager.Instance.ResetRunStats();
+    }
+
+    public void ResetRunStats()
+    {
+        gameOver = false;
+        gameSaved = false;
+        travelledRunDistance = 0;
+        coinsCollected = 0;
+        runDistance = 0;
     }
 
     // Check for existing save data.
-    private void CheckForSave()
+    public void CheckForSave()
     {
-        int lineNumber = 1;
+        int lineNumber = 3;
         string path = Application.persistentDataPath + "/GameData.txt"; // The file path for the save data. the file should end up in '/AppData/LocalLow/DefaultCompany/SideScroller/'
-        if (File.Exists(path))
+        Debug.Log(path);
+        if (File.Exists(path) || File.Exists(Application.persistentDataPath + "/filesGameData.txt"))
         {
             using (StreamReader sr = new StreamReader(path))
             {
@@ -46,8 +75,14 @@ public class GameManager : MonoBehaviour
                         case 1:
                             {
                                 string lineContents = sr.ReadLine();
-                                int.TryParse(lineContents, out bestRunDistance);
+                                float.TryParse(lineContents, out bestRunDistance);
                                 Debug.Log("Best Run Distance: " + bestRunDistance);
+                                break;
+                            }
+                        case 2:
+                            {
+                                string lineContents = sr.ReadLine();
+                                float.TryParse(lineContents, out totalTravelledDistance);
                                 break;
                             }
                     }
@@ -59,6 +94,9 @@ public class GameManager : MonoBehaviour
     // Save the game data.
     public void SaveRunData(int earntCoins, float runDistance)
     {
+        coinsCollected = earntCoins;
+        travelledRunDistance = runDistance;
+
         Debug.Log("Saving...");
         Debug.Log("Coins Earned This Run: " + earntCoins);
 
@@ -66,16 +104,18 @@ public class GameManager : MonoBehaviour
         // Check for an existing save.
         CheckForSave();
 
+        totalTravelledDistance += runDistance;
 
-        if (runDistance > travelledRunDistance)
+        if (runDistance > bestRunDistance)
         {
-            Debug.Log("Old Best Run Distance: " + travelledRunDistance);
-            travelledRunDistance = runDistance;
-            Debug.Log("New Best Run Distance: " + travelledRunDistance);
+            oldBest = bestRunDistance;
+            Debug.Log("Old Best Run Distance: " + oldBest);
+            bestRunDistance = runDistance;
+            Debug.Log("New Best Run Distance: " + bestRunDistance);
         }
         else
         {
-            Debug.Log("Best Run Distance: " + travelledRunDistance);
+            Debug.Log("Best Run Distance: " + bestRunDistance);
         }
 
         Debug.Log("Old Total Coins Owned: " + totalCurrency);
@@ -89,14 +129,20 @@ public class GameManager : MonoBehaviour
         StreamWriter w = new StreamWriter(path);
         Debug.Log(totalCurrency);
         w.WriteLine(totalCurrency);
-        if (travelledRunDistance > bestRunDistance)
+        if (runDistance > oldBest)
         {
-            w.WriteLine(travelledRunDistance);
+            w.WriteLine(bestRunDistance);
         }
+
+        w.WriteLine(totalTravelledDistance);
+
         w.Close();
         gameSaved = true;
 
         Debug.Log("Game Data Saved!");
+
+        Debug.Log(travelledRunDistance);
+        Debug.Log(coinsCollected);
     }
 
     public static GameManager Instance
