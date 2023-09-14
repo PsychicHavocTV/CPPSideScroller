@@ -25,12 +25,15 @@ public class CreatureHandler : MonoBehaviour
     // Spawn the creature.
     public void SpawnCreature()
     {
+
+        GameObject oldCreature = creatureBody;
         Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
         creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
         creatureBody.name = cO.name; // Rename the object accordingly.
         creatureType = creatureBody.GetComponent<Creature>();
         creatureType.enabled = true;
         cO = creatureType.creatureType;
+        cO.cH = cH;
 
 
         creatureBody.transform.parent = GameObject.Find("Creatures").transform;
@@ -49,13 +52,14 @@ public class CreatureHandler : MonoBehaviour
         {
             timer = 5;
         }
+        Destroy(oldCreature);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Despawn")
         {
-            Destroy(creatureBody);
             SpawnCreature();
         }
 
@@ -93,7 +97,7 @@ public class CreatureHandler : MonoBehaviour
         {
             // Generate a random number between 0 and 3, and create a new Y position for the shark to move to later, and reset the timer.
             ypos = (float)Random.Range(1, 6);
-            timer = 1;
+            timer = 1.51f;
         }
         else if (timer > 0)
         {
@@ -103,13 +107,13 @@ public class CreatureHandler : MonoBehaviour
         // If the sharks Y position doesnt already equal the newly generated Y position, and the new Y position is higher than the sharks current Y Position
         if (creatureBody.transform.position.y != ypos && ypos > creatureBody.transform.position.y)
         {
-            creatureBody.transform.position += Vector3.up * cO.creatureSpeed * Time.deltaTime; // Move the shark up multiplied by its speed.
+            creatureBody.transform.position += Vector3.up * 5 * Time.deltaTime; // Move the shark up multiplied by its speed.
         }
 
         // If the sharks Y position doesnt already equal the newly generated Y position, and the new Y position is lower than the sharks current Y Position
         if (creatureBody.transform.position.y != ypos && ypos < creatureBody.transform.position.y)
         {
-            creatureBody.transform.position += Vector3.down * cO.creatureSpeed * Time.deltaTime; // Move the shark down multiplied by its speed.
+            creatureBody.transform.position += Vector3.down * 5 * Time.deltaTime; // Move the shark down multiplied by its speed.
         }
     }
 
