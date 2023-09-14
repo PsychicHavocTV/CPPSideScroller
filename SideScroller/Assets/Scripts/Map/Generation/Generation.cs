@@ -1,23 +1,94 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Generation : MonoBehaviour
 {
     // Initialization
+    private PlayerController playerController;
     private GameObject[] obstaclePrefabs;
-    private GameObject[] coinStacks;
-    //private float InitialScrollSpeed = x;
+    private GameObject[] coinPrefab;
+
+    // Obstacle Initialization
+    private int lastObstacleIndex = -1;
+    private int sameObstacleCount = 0;
+
+    // Coin Initilization
+
 
     private void Start()
     {
-        StartCoroutine(SpawnCoin());
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        //StartCoroutine(SpawnCoin());
     }
 
-    IEnumerator SpawnCoin()
+    void Update()
     {
-        while (true) //replace "true" with a player alive check
+        if (GameManager.Instance.gameOver == false)
+        {
+            // Move the game world to the left at current speed
+            transform.position -= new Vector3(playerController.runspeed * Time.deltaTime, 0, 0);
+            playerController.runDistanceTravelled += playerController.runspeed * Time.deltaTime;
+
+            // Check if it's time to generate a new obstacle or coin
+            GenerateObstacle();
+
+            GenerateCoin();
+
+            // Increase speed gradually to make game harder
+            playerController.runspeed += 0.01f * Time.deltaTime;
+        }
+    }
+      
+    void GenerateObstacle()
+    {
+        if ((int)playerController.runDistanceTravelled % 100 == 0)
+        {
+            int obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
+
+            // If the same obstacle has been used 3 times in a row or no obstacle more than once, change the obstacle
+            if ((obstacleIndex == lastObstacleIndex && sameObstacleCount >= 2) || (obstaclePrefabs[obstacleIndex] == null && sameObstacleCount >= 1))
+            {
+                do
+                {
+                    obstacleIndex = Random.Range(0, obstaclePrefabs.Length);
+                }
+                while (obstacleIndex == lastObstacleIndex);
+            }
+
+            lastObstacleIndex = obstacleIndex;
+            sameObstacleCount = (obstacleIndex == lastObstacleIndex) ? sameObstacleCount + 1 : 0;
+
+            if (obstaclePrefabs[obstacleIndex] != null)
+            {
+                Instantiate(obstaclePrefabs[obstacleIndex]);
+            }
+        }
+    }
+
+    bool GenerateCoin()
+    {
+        // Implement this function based on your game's logic
+        return false;
+    }
+
+    /*void GenerateCoin()
+    {
+        // Randomly select a coin pattern prefab from the list
+        GameObject coinPatternPrefab = coinPrefab[Random.Range(0, coinPrefab.Length)];
+
+        // Determine the position (you might want to adjust this based on your game's logic)
+        Vector3 position = new Vector3(transform.position.x + 10, 0, 0);
+
+        // Instantiate the coin pattern at the determined position
+        Instantiate(coinPatternPrefab, position, Quaternion.identity);
+    }*/
+
+    /*IEnumerator SpawnCoin()
+    {
+        while (GameManager.Instance.gameOver == false) // While Gameover == false
         {
             yield return new WaitForSeconds(1f);
 
@@ -27,7 +98,8 @@ public class Generation : MonoBehaviour
 
             //Time.timeScale = 1;
         }
-    }
+    }*/
+
     /*
 
     public GameObject[] obstaclePrefabs;

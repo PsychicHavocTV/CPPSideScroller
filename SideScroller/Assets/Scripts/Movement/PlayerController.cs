@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public CurrencyEarnt currency;
     public float speed;
     public float runDistanceTravelled = 0;
-    private float runspeed = 5f;
+    public float runspeed = 5f; // changed from private to public - Dom
 
     public float counter = 0;
     bool speedchanged = false;
