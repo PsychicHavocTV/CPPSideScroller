@@ -24,11 +24,15 @@ public class CreatureHandler : MonoBehaviour
 
     // Spawn the creature.
     public void SpawnCreature()
-    {
-
+    {            
         GameObject oldCreature = creatureBody;
-        Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
-        creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
+        if(cO.shark == true)
+        {
+
+            Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
+            creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
+        }
+
         creatureBody.name = cO.name; // Rename the object accordingly.
         creatureType = creatureBody.GetComponent<Creature>();
         creatureType.enabled = true;
@@ -119,6 +123,7 @@ public class CreatureHandler : MonoBehaviour
 
     public void SealBehaviour()
     {
+        creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime; // Move the shark to the left.
         //Debug.Log("I am a seal.");
 
     }
