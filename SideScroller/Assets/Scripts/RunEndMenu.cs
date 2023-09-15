@@ -10,14 +10,16 @@ public class RunEndMenu : MonoBehaviour
     public TextMeshProUGUI distanceText;
     public TextMeshProUGUI collectedText;
 
+    public CurrencyEarnt currency;
+
     public Button mainMenuButton;
 
     public GameObject endRunMenu;
 
     bool endRunMenuLoaded = false;
 
-    public float travelDistanceTotal = 0;
-    public float travelDistanceCurrent = 0;
+    public int travelDistanceTotal = 0;
+    public int travelDistanceCurrent = 0;
     public int earntCoinsTotal = 0;
     public int earntCoinsCurrent = 0;
 
@@ -29,6 +31,7 @@ public class RunEndMenu : MonoBehaviour
 
     public void NewRun()
     {
+        endRunMenu.SetActive(false);
         GameManager.Instance.SwimAgain();
     }
 
@@ -40,27 +43,25 @@ public class RunEndMenu : MonoBehaviour
         }
         if (GameManager.Instance.gameOver == true && endRunMenuLoaded == false)
         {
-
             endRunMenu.SetActive(true);
-
             endRunMenuLoaded = true;
         }
 
         if (endRunMenu.activeSelf == true)
         {
-            if (earntCoinsTotal != GameManager.Instance.coinsCollected)
+            if (earntCoinsTotal != (int)GameManager.Instance.coinsCollected)
             {
                 earntCoinsTotal = GameManager.Instance.coinsCollected;
             }
-            if (travelDistanceTotal != GameManager.Instance.travelledRunDistance)
+            if (travelDistanceTotal != (int)GameManager.Instance.travelledRunDistance)
             {
-                travelDistanceTotal = GameManager.Instance.travelledRunDistance;
+                travelDistanceTotal = (int)GameManager.Instance.travelledRunDistance;
             }
 
             int travelDistanceRounded = (int)travelDistanceTotal;
 
-            distanceText.text = travelDistanceRounded.ToString() + " Meters!";
-            collectedText.text = earntCoinsTotal.ToString();
+            distanceText.text = travelDistanceTotal.ToString() + " Meters!";
+            collectedText.text = currency.earntRunCurrency.ToString();
         }
     }
 }
