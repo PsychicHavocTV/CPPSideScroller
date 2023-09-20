@@ -60,7 +60,14 @@ public class CreatureHandler : MonoBehaviour
     {
         if (other.tag == "Despawn")
         {
-            SpawnCreature();
+            if (cO.shark == true)
+            {
+                SpawnCreature();
+            }
+            else if (cO.seal == true)
+            {
+                Destroy(creatureBody);
+            }
         }
 
         if (other.tag == "Player")
@@ -119,6 +126,8 @@ public class CreatureHandler : MonoBehaviour
 
     public void SealBehaviour()
     {
+        creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime;
+
         //Debug.Log("I am a seal.");
 
     }
