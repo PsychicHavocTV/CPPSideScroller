@@ -3,7 +3,12 @@ guid: c10ff343c901d8c42a1e5f3bb2c3a03e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: group1Mat
+    second: {fileID: 2100000, guid: c35717b78d5cc9a47898e2d83e897fa3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -43,7 +48,7 @@ ModelImporter:
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
-    importLights: 1
+    importLights: 0
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0

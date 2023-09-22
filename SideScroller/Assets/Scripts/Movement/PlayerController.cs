@@ -48,7 +48,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// <c>FixedUpdate</c> handles the distance calculation and player input.
+    /// <para>runDistanceTravelled increases by 1.5 times the runspeed multiplied by deltaTime.</para>
+    /// <para>runSpeed increases every second by ~0.75.</para>
+    /// </summary>
     void FixedUpdate()
     {
         if (GameManager.Instance.gameOver == false) // If the run currently isn't over

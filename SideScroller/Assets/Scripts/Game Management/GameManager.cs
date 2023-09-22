@@ -22,18 +22,27 @@ public class GameManager : MonoBehaviour
     public int coinsCollected = 0;
     public float runDistance = 0;
 
+    /// <summary>
+    /// Call the <c>CheckForSave</c> function to load any saved data, then load the MainMenu.
+    /// </summary>
     private void Start()
     {
         CheckForSave();
         SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
     }
 
+    /// <summary>
+    /// Load the RUN scene, beginning a player run, then unload the MainMenu.
+    /// </summary>
     public void StartRun()
     {
         SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("MainMenu");
     }
 
+    /// <summary>
+    /// Completely reload the RUN scene, starting a new run.
+    /// </summary>
     public void SwimAgain()
     {
         SceneManager.UnloadSceneAsync("Run");
@@ -41,6 +50,9 @@ public class GameManager : MonoBehaviour
         GameManager.Instance.ResetRunStats();
     }
 
+    /// <summary>
+    /// Default the run data so the UI displays the correct data for specific runs.
+    /// </summary>
     public void ResetRunStats()
     {
         gameOver = false;
@@ -50,7 +62,12 @@ public class GameManager : MonoBehaviour
         runDistance = 0;
     }
 
-    // Check for existing save data.
+    /// <summary>
+    /// Check for any saved data, and if any is found, load it.
+    /// <para>The filepath varies for whatever platform the game is running on.</para>
+    /// <para>On WINDOWS the filepath is "C:\Users\(your username)\AppData\LocalLow\DefaultCompany\SideScroller\GameData.txt"</para>
+    /// <para>On ANDROID the filepath is "Android -> data -> DefaultCompany -> files -> GameData.txt"</para>
+    /// </summary>
     public void CheckForSave()
     {
         int lineNumber = 3;
@@ -91,7 +108,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Save the game data.
+    /// <summary>
+    /// Save the game data.
+    /// <para>Check for any existing data, then collect the distance from the most recent run.</para>
+    /// <para>Get and compare the distance of the most recent run to the best run, and if its higher than the best run, make it the new best run.</para>
+    /// <para>Add the coins collected in the run onto the total amount of coins owned.</para>
+    /// <para>Add the distance travelled in the most recent run onto the TOTAL amount of distance run.</para>
+    /// </summary>
+    /// <param name="earntCoins"></param>
+    /// <param name="runDistance"></param>
     public void SaveRunData(int earntCoins, float runDistance)
     {
         coinsCollected = earntCoins;

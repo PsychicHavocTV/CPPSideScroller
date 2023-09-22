@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CreatureHandler : MonoBehaviour
 {
+
     public CreatureObjects cO;
     public Creature creatureType;
     public GameObject creatureBody;
@@ -23,11 +24,15 @@ public class CreatureHandler : MonoBehaviour
     bool posGenerated = false;
 
     // Spawn the creature.
+    /// <summary>
+    /// <c>SpawnCreature</c> Gets all the information needed, then spawns a new creature into the game.
+    /// </summary>
     public void SpawnCreature()
     {
 
         GameObject oldCreature = creatureBody;
-        Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
+
+        Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f);
         creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
         creatureBody.name = cO.name; // Rename the object accordingly.
         creatureType = creatureBody.GetComponent<Creature>();
@@ -96,6 +101,14 @@ public class CreatureHandler : MonoBehaviour
         }
     }
 
+
+
+    /// <summary>
+    /// <c>SharkBehaviour</c> handles shark mechanics.
+    /// <para><description>Move the shark to the left using its Vector3, multiplied by its speed and deltaTime.</description></para>
+    /// <para><description>If the timer has reached zero (0), generate a position to move to on the Y axis between the range of 0.8 and 7.4, otherwise keep counting the timer down every second.</description></para>
+    /// <para><description>Move the shark up or down (using its Y axis) to the generated position.</description></para>
+    /// </summary>
     public void SharkBehaviour()
     {
         creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime; // Move the shark to the left.
@@ -124,11 +137,12 @@ public class CreatureHandler : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// <c>SealBehaviour</c> only moves the seal to the left using its Vector3, multiplied by its speed and deltaTime.
+    /// <para><description>FOR THE FULL SEAL BEHAVIOUR, SEE THE "WARNING" SCRIPT.</description></para>
+    /// </summary>
     public void SealBehaviour()
     {
         creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime;
-
-        //Debug.Log("I am a seal.");
-
     }
 }

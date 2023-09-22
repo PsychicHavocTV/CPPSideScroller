@@ -23,6 +23,9 @@ public class RunEndMenu : MonoBehaviour
     public int earntCoinsTotal = 0;
     public int earntCoinsCurrent = 0;
 
+    /// <summary>
+    /// <c>OpenMainMenuScene</c> is called after a run if the 'MainMenu' button is clicked. when called, the game will load the main menu, and then will unload the run scene.
+    /// </summary>
     public void OpenMainMenuScene()
     {
         SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);

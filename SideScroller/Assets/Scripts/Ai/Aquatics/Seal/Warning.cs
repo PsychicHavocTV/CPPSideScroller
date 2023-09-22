@@ -28,7 +28,18 @@ public class Warning : MonoBehaviour
         pc = player.GetComponentInChildren<PlayerController>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Here, <c>Update</c> handles all of the checking for the warning and for spawning seals.
+    /// <para><description>If the gameOver BOOL in the GameManager is still false (meaning the player is currently doing a run and hasnt hit an obstacle),
+    /// and the player has run AT LEAST 700 meters</description></para>
+    /// <para><description>Set up a timer that counts down to give the seal a chance to spawn.</description></para>
+    /// <para><description>Every time the chanceTimer has reached ZERO (0), generate a random number between zero (0) and ten (10), which will determine 
+    /// what will happen.</description></para>
+    /// <para><description>If the generated number (chance) is three (3) or less, set up a timer that, while counting, makes the WARNING object appear, 
+    /// and follow the player along the Y axis.</description></para>
+    /// <para><description>When the follow timer finished, make the WARNING object stay in one position for a short amount of time - one (1) to three (3) seconds - 
+    /// before calling the <c>SpawnSeal</c> function.</description></para>
+    /// </summary>
     void Update()
     {
         if (GameManager.Instance.gameOver == false)
@@ -121,6 +132,10 @@ public class Warning : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// <c>SpawnSeal</c> handles actually spawning a SEAL into the game.
+    /// <para><description>If the WARNING object is showing, hide it, then spawn (INSTANTIATE) a new seal into the game at the position of the WARNING object.</description></para>
+    /// </summary>
     public void SpawnSeal()
     {
         // Hide the warning sprite.
