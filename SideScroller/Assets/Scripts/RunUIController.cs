@@ -21,10 +21,10 @@ public class RunUIController : MonoBehaviour
             roundedDistance = (int)pC.runDistanceTravelled;
         }
 
-        if (GameManager.Instance.gameOver == false)
-        {
+        //if (GameManager.Instance.gameOver == false)
+        //{
             distanceCounterText.text = roundedDistance.ToString() + " METERS";
             coinCounterText.text = "$" + pC.currency.earntRunCurrency.ToString();
-        }
+        //}
     }
 }

@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     public float runDistanceTravelled = 0;
     private float runspeed = 5f;
 
+    private Vector3 faceDirection;
+    [SerializeField]
+    private float rotateSpeed = 5;
+    [SerializeField]
+    private float rotateAngle = 0.5f;
+
     public float counter = 12;
     bool speedchanged = false;
 
@@ -32,7 +38,6 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "Coin")
         {
             currency.earntRunCurrency += 1;
-            return;
         }
     }
 
@@ -60,6 +65,8 @@ public class PlayerController : MonoBehaviour
             //    speed += 0.5f;
             //}
 
+            transform.up = Vector3.MoveTowards(transform.up, faceDirection, rotateSpeed * Time.deltaTime);
+
             Debug.Log(runDistanceTravelled);
 
             // If the player clicks the left mouse button (or taps the touchscreen on mobile), and the player is currently below the maximum height
@@ -73,23 +80,30 @@ public class PlayerController : MonoBehaviour
                 counter = 12;
                 player.transform.position += Vector3.up * counter * Time.deltaTime;
 
-            }
-            
-            // If the player releases the left mouse button (or stops tapping the touchscreen on mobile), and the player is currently above the minimum height
-            if (player.transform.position.y > (floorPosition.position.y + 0.1f) && !Input.GetMouseButton(0))
-            {
-                //if (counter > 0)
-                //{
-                //    counter -= 0.31f;
-                //}
-                // Move the player down, almost like GRAVITY.
-                counter = 7;
-                player.transform.position += Vector3.down * counter * Time.deltaTime; //(speed / 1.8f) * Time.deltaTime;
+                faceDirection = (new Vector3(1, rotateAngle, 0)).normalized;
+
             }
 
-            if (player.transform.position.y <= ((floorPosition.transform.position.y ) + 0.1f))
+        }
+        // If the player releases the left mouse button (or stops tapping the touchscreen on mobile), and the player is currently above the minimum height
+        if (player.transform.position.y > (floorPosition.position.y + 0.1f) && !Input.GetMouseButton(0))
+        {
+            //if (counter > 0)
+            //{
+            //    counter -= 0.31f;
+            //}
+            // Move the player down, almost like GRAVITY.
+            faceDirection = (new Vector3(1, -rotateAngle, 0)).normalized;
+            counter = 7;
+            player.transform.position += Vector3.down * counter * Time.deltaTime; //(speed / 1.8f) * Time.deltaTime;
+        }
+
+        if (player.transform.position.y <= ((floorPosition.transform.position.y ) + 0.1f))
+        {
+            counter = 0;
+            if (!Input.GetMouseButton(0))
             {
-                counter = 0;
+                faceDirection = (new Vector3(1, 0, 0)).normalized;
             }
         }
     }

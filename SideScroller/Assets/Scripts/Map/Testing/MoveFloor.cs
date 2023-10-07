@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveFloor : MonoBehaviour
 {
     public GameObject ground;
-    public GameObject objectsHolder;
+    public GameObject objectsHolder;    
     public float floorSpeed;
     public PlayerController pc;
 

@@ -24,15 +24,11 @@ public class CreatureHandler : MonoBehaviour
 
     // Spawn the creature.
     public void SpawnCreature()
-    {            
+    {
+
         GameObject oldCreature = creatureBody;
-        if(cO.shark == true)
-        {
-
-            Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
-            creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
-        }
-
+        Vector3 tempPos = new Vector3(24.35f, 1.23f, 1.89f); // Set a temporary position for the creature to spawn at.
+        creatureBody = Instantiate(testCreature, tempPos, testCreature.transform.rotation); // Spawn the creature at the temporary position.
         creatureBody.name = cO.name; // Rename the object accordingly.
         creatureType = creatureBody.GetComponent<Creature>();
         creatureType.enabled = true;
@@ -64,7 +60,14 @@ public class CreatureHandler : MonoBehaviour
     {
         if (other.tag == "Despawn")
         {
-            SpawnCreature();
+            if (cO.shark == true)
+            {
+                SpawnCreature();
+            }
+            else if (cO.seal == true)
+            {
+                Destroy(creatureBody);
+            }
         }
 
         if (other.tag == "Player")
@@ -100,7 +103,7 @@ public class CreatureHandler : MonoBehaviour
         if(timer <= 0) // If the timer has reached ZERO (0)
         {
             // Generate a random number between 0 and 3, and create a new Y position for the shark to move to later, and reset the timer.
-            ypos = (float)Random.Range(1, 6);
+            ypos = (float)Random.Range(0.8f, 7.4f);
             timer = 1.51f;
         }
         else if (timer > 0)
@@ -123,7 +126,8 @@ public class CreatureHandler : MonoBehaviour
 
     public void SealBehaviour()
     {
-        creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime; // Move the shark to the left.
+        creatureBody.transform.position += Vector3.left * cO.creatureSpeed * Time.deltaTime;
+
         //Debug.Log("I am a seal.");
 
     }
